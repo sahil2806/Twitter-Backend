@@ -8,9 +8,9 @@ const connect = require('./config/database');
 // const Comment = require('./model/comment');
 
 
-// const repoclass = require('./repository/tweet-repository');
+const repoclass = require('./repository/tweet-repository');
 
-// const repoclassobject = new repoclass();
+const repoclassobject = new repoclass();
 
 
 app.listen(3000, async () => {
@@ -18,8 +18,11 @@ app.listen(3000, async () => {
     await connect();
     console.log(`Mongo db connected`);
 
-    // const tweet =await  repoclassobject.getWithComments('6683ef36269d4d4adaa8e13b');
-    // console.log(tweet);
+    const tweet =await  repoclassobject.getAll(0,2);
+    const contentWithEmail = tweet[0].contentWithEmail;
+    console.log(contentWithEmail);
+    // console.log(tweet[0]._id);
+    // console.log(tweet[0].id);
 
     // const cc = await Comment.create({content:"This is my first comment"});
     // tweet.comments.push(cc);

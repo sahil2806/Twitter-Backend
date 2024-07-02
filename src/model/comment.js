@@ -1,5 +1,5 @@
 const {mongoose} = require('mongoose');
-const { string } = require('prop-types');
+ 
 
 const commentSchema = new mongoose.Schema({
     content:{
@@ -10,6 +10,8 @@ const commentSchema = new mongoose.Schema({
         type:String
     },
 },{timestamps:true} );
+
+
 
 
 const Comment = mongoose.model('Comment',commentSchema);
