@@ -1,6 +1,6 @@
 // const HashTag = require('../model/hashtags');
 
-import HashTag from '../model/hashtags'
+import HashTag from '../model/hashtags.js'
 
 class HashtagRepository {
 

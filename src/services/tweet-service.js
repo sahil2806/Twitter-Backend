@@ -1,6 +1,6 @@
 // const {TweetRepository,HashtagRepository} = require('../repository/index');
 
-import {TweetRepository,HashtagRepository} from '../repository/index';
+import {TweetRepository,HashtagRepository} from '../repository/index.js';
  
 
 class TweetService {
@@ -12,8 +12,7 @@ class TweetService {
     async create(data){
         
         const content = data.content;
-        let tags = content.match(/#[a-zA-Z0-9_]+/g);
-        tags = tags.map((tag) => tag.substring(1));
+        const tags = content.match(/#[a-zA-Z0-9_]+/g).map((tag) => tag.substring(1)).map(tag => tag.toLowerCase()); 
         const tweet = await this.tweetRepository.create(data);
         const alreadyPresentTags = await this.hashtagRepository.findByName(tags);
         const titleOfPresentTags = alreadyPresentTags.map(tags => tags.title);

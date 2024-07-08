@@ -2,7 +2,7 @@
 //     TweetService : require('./tweet-service'),
 // }
 
-import TweetService from './tweet-service';
+import TweetService from './tweet-service.js';
 
 
 export {
