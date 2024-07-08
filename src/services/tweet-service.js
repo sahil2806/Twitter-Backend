@@ -1,5 +1,6 @@
-const {TweetRepository,HashtagRepository} = require('../repository/index');
+// const {TweetRepository,HashtagRepository} = require('../repository/index');
 
+import {TweetRepository,HashtagRepository} from '../repository/index';
  
 
 class TweetService {
@@ -9,7 +10,7 @@ class TweetService {
     }
 
     async create(data){
-       
+        
         const content = data.content;
         let tags = content.match(/#[a-zA-Z0-9_]+/g);
         tags = tags.map((tag) => tag.substring(1));
@@ -20,8 +21,7 @@ class TweetService {
         newTags = newTags.map((tag) => {
             return {title:tag,tweets:[tweet.id] };
         })
-        const response = await this.hashtagRepository.bulkCreate(newTags);
-        console.log(alreadyPresentTags)
+        await this.hashtagRepository.bulkCreate(newTags);
         alreadyPresentTags.forEach((tag) => {
             tag.tweets.push(tweet.id);
             tag.save();
@@ -36,7 +36,8 @@ class TweetService {
     }
 }
 
-module.exports = TweetService;
+// module.exports = TweetService;
+export default TweetService;
 
 
 /**

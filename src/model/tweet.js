@@ -1,4 +1,6 @@
-const {mongoose} = require('mongoose');
+// const {mongoose} = require('mongoose');
+import mongoose from 'mongoose';
+
 
 const tweetSchema = new mongoose.Schema({
     content:{
@@ -15,7 +17,8 @@ const tweetSchema = new mongoose.Schema({
 },{timestamps:true});
 
 const Tweet = mongoose.model('Tweet',tweetSchema);
-module.exports = Tweet;
+// module.exports = Tweet;
+export default Tweet
 
 
 
