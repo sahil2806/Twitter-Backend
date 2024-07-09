@@ -1,6 +1,6 @@
 // const {TweetRepository,HashtagRepository} = require('../repository/index');
 
-import {TweetRepository,HashtagRepository} from '../repository/index.js';
+import { HashtagRepository, TweetRepository } from '../repository/index.js';
  
 
 class TweetService {
@@ -25,17 +25,10 @@ class TweetService {
             tag.tweets.push(tweet.id);
             tag.save();
         })
-        /**
-        todo create hastag and add  here
-        * 1.Bulkcreate in mongoose.
-        * 2.filter title of hastag based on the multiple of hashtags.
-        * 3.How to add tweet id inside all the hashtags.
-        */
         return tweet;
     }
 }
 
-// module.exports = TweetService;
 export default TweetService;
 
 
