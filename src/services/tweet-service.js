@@ -1,7 +1,6 @@
-// const {TweetRepository,HashtagRepository} = require('../repository/index');
 
-import { HashtagRepository, TweetRepository } from '../repository/index.js';
- 
+import { HashtagRepository,TweetRepository } from "../repository/index.js"
+
 
 class TweetService {
     constructor(){

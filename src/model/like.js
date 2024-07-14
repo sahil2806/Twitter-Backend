@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const likeSchema = new mongoose.Schema({
     onModel :{
-        type : string,
+        type : String,
         required :true,
         enum : ['Tweet','Comment']
     },
@@ -15,10 +15,9 @@ const likeSchema = new mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
-
     }
 },{timestamps:true});
 
-const Like = mongoose.model('Like' , likeSchema);
+const Likes =  mongoose.model('Likes' , likeSchema);
 
-export default Like;
+export default Likes;
