@@ -50,6 +50,7 @@ class TweetRepository  extends CrudRepository{
             console.log(error);
         }
     }
+    
 }
 
 export default TweetRepository;

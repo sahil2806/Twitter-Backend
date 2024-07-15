@@ -3,15 +3,6 @@ import mongoose from 'mongoose';
 
 
 const commentSchema = new mongoose.Schema({
-    content:{
-        type : String,
-        required : true,
-    },
-    userId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'User',
-        requird : true
-    },
     onModel : {
         type :  String,
         required : true,
@@ -22,12 +13,28 @@ const commentSchema = new mongoose.Schema({
         required : true,
         refPath : 'onModel'
     },
+    content:{
+        type : String,
+        required : true,
+    },
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        requird : true
+    },
     comments :[
         {
             type:mongoose.Schema.Types.ObjectId,
             ref : 'Comment'
         }
-    ]
+    ],
+    likes :[
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Like'
+        }
+    ],
+    
 
 },{timestamps:true} );
 
