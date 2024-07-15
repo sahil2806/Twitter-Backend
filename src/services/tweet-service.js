@@ -1,5 +1,5 @@
 
-import { HashtagRepository,TweetRepository } from "../repository/index.js"
+import { HashtagRepository, TweetRepository } from "../repository/index.js";
 
 
 class TweetService {
@@ -24,6 +24,12 @@ class TweetService {
             tag.tweets.push(tweet.id);
             tag.save();
         })
+        return tweet;
+    }
+
+    async get(tweetId){
+        const tweet = await this.tweetRepository.getWithComments(tweetId);
+        console.log('tweet',tweet);
         return tweet;
     }
 }
